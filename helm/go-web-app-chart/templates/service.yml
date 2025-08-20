@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-web-app
+  labels:
+    app: go-web-app
+#meta data is basically naming the service and labeling it
+spec:
+  selector:
+    app: go-web-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
+
+
+#target port has to be the conatiner port in which the app is running 
+
+# port is cluster port
+
+# selector → Tells the Service which Pods to send traffic to.
+
+# It looks for Pods with the label app: go-web-app.
+
+# Example: If you have a Deployment where Pods have this label, this Service will load balance traffic across all of them.
+
